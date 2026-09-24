@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ParkShare — Rent unused parking</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQ3fJ1K8zL2x0a8QJg7g9vZxQq1xJ6E=" crossorigin="">
 <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
@@ -12,7 +13,8 @@
 <main>
 <section id="find" class="view active">
 <div class="hero"><div><div class="eyebrow">PARKING MARKETPLACE</div><h1>Park closer.<br><span>Book before you arrive.</span></h1><p>Find unused private and commercial parking spaces near your destination.</p></div></div>
-<div class="searchbar"><input id="q" placeholder="Search area, landmark or parking name" value="Dharamshala"><button class="primary" id="searchBtn">Search parking</button></div>
+<div class="searchbar"><input id="q" placeholder="Search area, landmark or parking name" value="Dharamshala"><button class="primary" id="searchBtn">Search parking</button><button class="secondary" id="locateBtn" type="button">📍 Use my location</button></div>
+<div class="mapWrap"><div id="map" aria-label="Parking map"></div><div class="mapHint">Tap a parking pin to see its price and book.</div></div>
 <div class="toolbar"><div><b id="spaceCount">0</b> spaces available</div><div class="muted">Prices shown per hour</div></div>
 <div id="spaceGrid" class="grid"></div>
 </section>
@@ -20,12 +22,13 @@
 <section id="list" class="view">
 <div class="sectionHead"><div><div class="eyebrow">FOR OWNERS</div><h2>Earn from your empty parking space.</h2><p>List a driveway, hotel slot, shop space or unused commercial parking area.</p></div></div>
 <div class="panel"><h3>Create owner account</h3><div class="formgrid"><input id="ownerName" placeholder="Full name"><input id="ownerPhone" placeholder="Phone number"></div><button class="primary" id="createOwner">Create owner account</button><div id="ownerStatus" class="status"></div></div>
-<div class="panel" id="spaceForm" style="display:none"><h3>List your parking space</h3><div class="formgrid"><input id="title" placeholder="Parking title"><input id="address" placeholder="Full address / landmark"><input id="city" placeholder="City"><input id="price" type="number" min="1" placeholder="₹ per hour"><select id="vehicle"><option>Car</option><option>Bike</option><option>Car + Bike</option></select><label class="check"><input id="covered" type="checkbox"> Covered parking</label><input id="from" type="time" value="09:00"><input id="to" type="time" value="21:00"></div><button class="primary" id="publish">Publish parking space</button><div id="publishStatus" class="status"></div></div>
+<div class="panel" id="spaceForm" style="display:none"><h3>List your parking space</h3><div class="formgrid"><input id="title" placeholder="Parking title"><input id="address" placeholder="Full address / landmark"><input id="city" placeholder="City"><input id="price" type="number" min="1" placeholder="₹ per hour"><select id="vehicle"><option>Car</option><option>Bike</option><option>Car + Bike</option></select><label class="check"><input id="covered" type="checkbox"> Covered parking</label><input id="from" type="time" value="09:00"><input id="to" type="time" value="21:00"></div><p class="muted small">For this first map version, new owner listings appear in the list. Map pin coordinates will be added in the next location upgrade.</p><button class="primary" id="publish">Publish parking space</button><div id="publishStatus" class="status"></div></div>
 </section>
 
 <section id="bookings" class="view"><div class="sectionHead"><div class="eyebrow">OPERATIONS</div><h2>Booking dashboard</h2><p>Prototype admin view for bookings. Production authentication will be added later.</p></div><div class="panel"><div id="bookingList"></div></div></section>
 </main>
 
 <div id="modal" class="modal"><div class="modalCard"><button class="x" id="close">×</button><div id="modalBody"></div></div></div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script src="/app.js"></script>
 </body></html>
