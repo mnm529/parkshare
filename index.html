@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ParkShare — Rent unused parking</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header><div class="nav"><div class="brand">Park<span>Share</span></div>
+<nav><button class="navbtn active" data-view="find">Find parking</button><button class="navbtn" data-view="list">List my space</button><button class="navbtn" data-view="bookings">Bookings</button></nav></div></header>
+
+<main>
+<section id="find" class="view active">
+<div class="hero"><div><div class="eyebrow">PARKING MARKETPLACE</div><h1>Park closer.<br><span>Book before you arrive.</span></h1><p>Find unused private and commercial parking spaces near your destination.</p></div></div>
+<div class="searchbar"><input id="q" placeholder="Search area, landmark or parking name" value="Dharamshala"><button class="primary" id="searchBtn">Search parking</button></div>
+<div class="toolbar"><div><b id="spaceCount">0</b> spaces available</div><div class="muted">Prices shown per hour</div></div>
+<div id="spaceGrid" class="grid"></div>
+</section>
+
+<section id="list" class="view">
+<div class="sectionHead"><div><div class="eyebrow">FOR OWNERS</div><h2>Earn from your empty parking space.</h2><p>List a driveway, hotel slot, shop space or unused commercial parking area.</p></div></div>
+<div class="panel"><h3>Create owner account</h3><div class="formgrid"><input id="ownerName" placeholder="Full name"><input id="ownerPhone" placeholder="Phone number"></div><button class="primary" id="createOwner">Create owner account</button><div id="ownerStatus" class="status"></div></div>
+<div class="panel" id="spaceForm" style="display:none"><h3>List your parking space</h3><div class="formgrid"><input id="title" placeholder="Parking title"><input id="address" placeholder="Full address / landmark"><input id="city" placeholder="City"><input id="price" type="number" min="1" placeholder="₹ per hour"><select id="vehicle"><option>Car</option><option>Bike</option><option>Car + Bike</option></select><label class="check"><input id="covered" type="checkbox"> Covered parking</label><input id="from" type="time" value="09:00"><input id="to" type="time" value="21:00"></div><button class="primary" id="publish">Publish parking space</button><div id="publishStatus" class="status"></div></div>
+</section>
+
+<section id="bookings" class="view"><div class="sectionHead"><div class="eyebrow">OPERATIONS</div><h2>Booking dashboard</h2><p>Prototype admin view for bookings. Production authentication will be added later.</p></div><div class="panel"><div id="bookingList"></div></div></section>
+</main>
+
+<div id="modal" class="modal"><div class="modalCard"><button class="x" id="close">×</button><div id="modalBody"></div></div></div>
+<script src="/app.js"></script>
+</body></html>
